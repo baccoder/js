@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Periodic table</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .periodic-table table{
+            border-collapse: collapse;
+            border: 1px solid #000;
+            margin: 0 auto;
+
+        }
+        .periodic-table table td{
+            border: 1px solid #000;
+        }
+        .periodic-table{
+            font-size: 14px;
+        }
+        .block, .period{
+            padding: 0 17px;
+            max-width: 40px;
+            font-weight: 900;
+        }
+        .group{
+            font-weight: 900;
+        }
+        .chemical_elem{
+            position: relative;
+            width: 105px;
+            padding:1px 5px;
+        }
+        .header{
+            padding: 15px 10px;
+            font-size: 1.4em;
+            text-align: center;
+        }
+        .s_block{
+            background: #f1a9d1;
+        }
+        .p_block{
+            background: #fddf54;
+        }
+        .d_block{
+            text-align: right;
+            background: #73cdf0;
+        }
+        .f_block{
+            background: #8cc838;
+        }
+        .serial-number{
+            position: absolute;
+            font-size: 1.2em;
+            right: 5px;
+            font-weight: 800;
+        }
+        .short-name{
+            font-weight: 800;
+            font-size: 1.5em;
+        }
+        .full-name{
+            display: block;
+        }
+        .mass{
+            float: right;
+        }
+        .d_block .serial-number{
+            right: auto;
+            left: 5px;
+        }
+        .lat-name{
+            display: none;
+        }
+        .oxy, .hydro{
+            font-size: 1.2em;
+            padding: 10px 5px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body><form class="inp">
+Element nomi:<input type="text" class="molecula" /> 
+Element  massasi:<input type="text" class="molecula-mass">
+<input type="submit" class="calculate" value="calc"/>
+</form>
+<div class="result"></div>
+<div class="periodic-table">
+<table class="main">
+    <tr>
+        <td></td>
+        <td></td>
+        <td class="group">I</td>
+        <td class="group">II</td>
+        <td class="group">III</td>
+        <td class="group">IV</td>
+        <td class="group">V</td>
+        <td class="group">VI</td>
+        <td class="group">VII</td>
+        <td class="group" colspan="3">VIII</td>
+    </tr>
+    <tr>
+        <td class="block">1</td>
+        <td class="period">1</td>
+        <td class="chemical_elem elem1"></td>
+        <td colspan="5"></td>
+        <td class="ghost">(H)</td>
+        <td colspan="2"></td>
+        <td class="chemical_elem elem2"></td>
+    </tr>
+    <tr>
+        <td class="block">2</td>
+        <td class="period">2</td>
+        <td class="chemical_elem elem3"></td>
+        <td class="chemical_elem elem4"></td>
+        <td class="chemical_elem elem5"></td>
+        <td class="chemical_elem elem6"></td>
+        <td class="chemical_elem elem7"></td>
+        <td class="chemical_elem elem8"></td>
+        <td class="chemical_elem elem9"></td>
+        <td colspan="2"></td>
+        <td class="chemical_elem elem10"></td>
+    </tr>
+    <tr>
+        <td class="block">3</td>
+        <td class="period">3</td>
+        <td class="chemical_elem elem11"></td>
+        <td class="chemical_elem elem12"></td>
+        <td class="chemical_elem elem13"></td>
+        <td class="chemical_elem elem14"></td>
+        <td class="chemical_elem elem15"></td>
+        <td class="chemical_elem elem16"></td>
+        <td class="chemical_elem elem17"></td>
+        <td colspan="2"></td>
+        <td class="chemical_elem elem18"></td>
+    </tr>
+    <tr>
+        <td class="block" rowspan="2">4</td>
+        <td class="period">4</td>
+        <td class="chemical_elem elem19"></td>
+        <td class="chemical_elem elem20"></td>
+        <td class="chemical_elem elem21"></td>
+        <td class="chemical_elem elem22"></td>
+        <td class="chemical_elem elem23"></td>
+        <td class="chemical_elem elem24"></td>
+        <td class="chemical_elem elem25"></td>
+        <td class="chemical_elem elem26"></td>
+        <td class="chemical_elem elem27"></td>
+        <td class="chemical_elem elem28"></td>
+    </tr>
+    <tr>
+        <td class="period">5</td>
+        <td class="chemical_elem elem29"></td>
+        <td class="chemical_elem elem30"></td>
+        <td class="chemical_elem elem31"></td>
+        <td class="chemical_elem elem32"></td>
+        <td class="chemical_elem elem33"></td>
+        <td class="chemical_elem elem34"></td>
+        <td class="chemical_elem elem35"></td>
+        <td colspan="2"></td>
+        <td class="chemical_elem elem36"></td>
+    </tr>
+    <tr>
+        <td class="block" rowspan="2">5</td>
+        <td class="period">6</td>
+        <td class="chemical_elem elem37"></td>
+        <td class="chemical_elem elem38"></td>
+        <td class="chemical_elem elem39"></td>
+        <td class="chemical_elem elem40"></td>
+        <td class="chemical_elem elem41"></td>
+        <td class="chemical_elem elem42"></td>
+        <td class="chemical_elem elem43"></td>
+        <td class="chemical_elem elem44"></td>
+        <td class="chemical_elem elem45"></td>
+        <td class="chemical_elem elem46"></td>
+    </tr>
+    <tr>
+        <td class="period">7</td>
+        <td class="chemical_elem elem47"></td>
+        <td class="chemical_elem elem48"></td>
+        <td class="chemical_elem elem49"></td>
+        <td class="chemical_elem elem50"></td>
+        <td class="chemical_elem elem51"></td>
+        <td class="chemical_elem elem52"></td>
+        <td class="chemical_elem elem53"></td>
+        <td colspan="2"></td>
+        <td class="chemical_elem elem54"></td>
+    </tr>
+    <tr>
+        <td class="block" rowspan="2">6</td>
+        <td class="period">8</td>
+        <td class="chemical_elem elem55"></td>
+        <td class="chemical_elem elem56"></td>
+        <td class="chemical_elem elem57"></td>
+        <td class="chemical_elem elem72"></td>
+        <td class="chemical_elem elem73"></td>
+        <td class="chemical_elem elem74"></td>
+        <td class="chemical_elem elem75"></td>
+        <td class="chemical_elem elem76"></td>
+        <td class="chemical_elem elem77"></td>
+        <td class="chemical_elem elem78"></td>
+    </tr>
+    <tr>
+        <td class="period">9</td>
+        <td class="chemical_elem elem79"></td>
+        <td class="chemical_elem elem80"></td>
+        <td class="chemical_elem elem81"></td>
+        <td class="chemical_elem elem82"></td>
+        <td class="chemical_elem elem83"></td>
+        <td class="chemical_elem elem84"></td>
+        <td class="chemical_elem elem85"></td>
+        <td colspan="2"></td>
+        <td class="chemical_elem elem86"></td>
+    </tr>
+    <tr>
+        <td class="block">7</td>
+        <td class="period">10</td>
+        <td class="chemical_elem elem87"></td>
+        <td class="chemical_elem elem88"></td>
+        <td class="chemical_elem elem89"></td>
+        <td class="chemical_elem elem104"></td>
+        <td class="chemical_elem elem105"></td>
+        <td class="chemical_elem elem106"></td>
+        <td class="chemical_elem elem107"></td>
+        <td class="chemical_elem elem108"></td>
+        <td class="chemical_elem elem109"></td>
+        <td class="chemical_elem elem110"></td>
+    </tr>
+    <tr>
+        <td colspan="2"></td>
+        <td class="chemical_elem elem111"></td>
+        <td class="chemical_elem elem112"></td>
+        <td colspan="10"></td>
+    </tr>
+    <tr>
+        <td colspan="2">Oliy<br> oksidlar</td>
+        <td class="oxy">R<sub>2</sub>O</td>
+        <td class="oxy">RO</td>
+        <td class="oxy">R<sub>2</sub>O<sub>3</sub></td>
+        <td class="oxy">RO<sub>2</sub></td>
+        <td class="oxy">R<sub>2</sub>O<sub>5</sub></td>
+        <td class="oxy">RO<sub>3</sub></td>
+        <td class="oxy">R<sub>2</sub>O<sub>7</sub></td>
+        <td></td>
+        <td class="oxy">RO<sub>4</sub></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td colspan="2">Uchuvchan<br> vodorod<br> birikmalari</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="hydro">RH<sub>4</sub></td>
+        <td class="hydro">RH<sub>3</sub></td>
+        <td class="hydro">H<sub>2</sub>R</td>
+        <td class="hydro">HR</td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+<table class="secondary">
+    <tr>
+        <td class="header" colspan="14">* LANTANOIDLAR</td>
+    </tr>
+    <tr>
+        <td class="chemical_elem elem58"></td>
+        <td class="chemical_elem elem59"></td>
+        <td class="chemical_elem elem60"></td>
+        <td class="chemical_elem elem61"></td>
+        <td class="chemical_elem elem62"></td>
+        <td class="chemical_elem elem63"></td>
+        <td class="chemical_elem elem64"></td>
+        <td class="chemical_elem elem65"></td>
+        <td class="chemical_elem elem66"></td>
+        <td class="chemical_elem elem67"></td>
+        <td class="chemical_elem elem68"></td>
+        <td class="chemical_elem elem69"></td>
+        <td class="chemical_elem elem70"></td>
+        <td class="chemical_elem elem71"></td>
+    </tr>
+    <tr>
+        <td class="header" colspan="14">** AKTINOIDLAR</td>
+    </tr>
+    <tr>
+        <td class="chemical_elem elem90"></td>
+        <td class="chemical_elem elem91"></td>
+        <td class="chemical_elem elem92"></td>
+        <td class="chemical_elem elem93"></td>
+        <td class="chemical_elem elem94"></td>
+        <td class="chemical_elem elem95"></td>
+        <td class="chemical_elem elem96"></td>
+        <td class="chemical_elem elem97"></td>
+        <td class="chemical_elem elem98"></td>
+        <td class="chemical_elem elem99"></td>
+        <td class="chemical_elem elem100"></td>
+        <td class="chemical_elem elem101"></td>
+        <td class="chemical_elem elem102"></td>
+        <td class="chemical_elem elem103"></td>
+    </tr>
+</table>
+</div>
+
+<script>
+    var periodic_table = JSON.parse('{"element-1":{"elemShortName":"H","elemFullName":"Vodorod","elemLatName":"Hydrogenium","elemMass":"1.008","elemClass":"s_block"},"element-2":{"elemShortName":"He","elemFullName":"Geliy","elemLatName":"Helium","elemMass":"4.003","elemClass":"s_block"},"element-3":{"elemShortName":"Li","elemFullName":"Litiy","elemLatName":"Lithium","elemMass":"6.941","elemClass":"s_block"},"element-4":{"elemShortName":"Be","elemFullName":"Berilliy","elemLatName":"Beryllium","elemMass":"9.0122","elemClass":"s_block"},"element-5":{"elemShortName":"B","elemFullName":"Bor","elemLatName":"Borium","elemMass":"10.811","elemClass":"p_block"},"element-6":{"elemShortName":"C","elemFullName":"Uglerod","elemLatName":"Carbonium","elemMass":"12.011","elemClass":"p_block"},"element-7":{"elemShortName":"N","elemFullName":"Azot","elemLatName":"Nitrogenium","elemMass":"14.007","elemClass":"p_block"},"element-8":{"elemShortName":"O","elemFullName":"Kislorod","elemLatName":"Oxygenium","elemMass":"15.999","elemClass":"p_block"},"element-9":{"elemShortName":"F","elemFullName":"Ftor","elemLatName":"Fluorum","elemMass":"18.998","elemClass":"p_block"},"element-10":{"elemShortName":"Ne","elemFullName":"Neon","elemLatName":"Neon","elemMass":"20.179","elemClass":"p_block"},"element-11":{"elemShortName":"Na","elemFullName":"Natriy","elemLatName":"Natrium","elemMass":"22.99","elemClass":"s_block"},"element-12":{"elemShortName":"Mg","elemFullName":"Magniy","elemLatName":"Magnesium","elemMass":"24.312","elemClass":"s_block"},"element-13":{"elemShortName":"Al","elemFullName":"Alyuminiy","elemLatName":"Aluminium","elemMass":"26.9816","elemClass":"p_block"},"element-14":{"elemShortName":"Si","elemFullName":"Kremniy","elemLatName":"Silicium","elemMass":"28.086","elemClass":"p_block"},"element-15":{"elemShortName":"P","elemFullName":"Fosfor","elemLatName":"Phosphorus","elemMass":"30.974","elemClass":"p_block"},"element-16":{"elemShortName":"S","elemFullName":"Oltingugurt","elemLatName":"Sulphur","elemMass":"32.064","elemClass":"p_block"},"element-17":{"elemShortName":"Cl","elemFullName":"Xlor","elemLatName":"Chlorum","elemMass":"35.453","elemClass":"p_block"},"element-18":{"elemShortName":"Ar","elemFullName":"Argon","elemLatName":"Argon","elemMass":"39.948","elemClass":"p_block"},"element-19":{"elemShortName":"K","elemFullName":"Kaliy","elemLatName":"Kalium","elemMass":"39.102","elemClass":"s_block"},"element-20":{"elemShortName":"Ca","elemFullName":"Kaltsiy","elemLatName":"Calcium","elemMass":"40.08","elemClass":"s_block"},"element-21":{"elemShortName":"Sc","elemFullName":"Skandiy","elemLatName":"Scandium","elemMass":"44.956","elemClass":"d_block"},"element-22":{"elemShortName":"Ti","elemFullName":"Titan","elemLatName":"Titanium","elemMass":"47.956","elemClass":"d_block"},"element-23":{"elemShortName":"V","elemFullName":"Vanadiy","elemLatName":"Vanadium","elemMass":"50.941","elemClass":"d_block"},"element-24":{"elemShortName":"Cr","elemFullName":"Xrom","elemLatName":"Chromium","elemMass":"51.996","elemClass":"d_block"},"element-25":{"elemShortName":"Mn","elemFullName":"Marganets","elemLatName":"Manganum","elemMass":"54.938","elemClass":"d_block"},"element-26":{"elemShortName":"Fe","elemFullName":"Temir","elemLatName":"Ferrum","elemMass":"55.849","elemClass":"d_block"},"element-27":{"elemShortName":"Co","elemFullName":"Kobalt","elemLatName":"Cobaltum","elemMass":"58.933","elemClass":"d_block"},"element-28":{"elemShortName":"Ni","elemFullName":"Nikel","elemLatName":"Niccolum","elemMass":"58.7","elemClass":"d_block"},"element-29":{"elemShortName":"Cu","elemFullName":"Mis","elemLatName":"Cuprum","elemMass":"63.546","elemClass":"d_block"},"element-30":{"elemShortName":"Zn","elemFullName":"Rux","elemLatName":"Zincum","elemMass":"65.37","elemClass":"d_block"},"element-31":{"elemShortName":"Ga","elemFullName":"Galliy","elemLatName":"Gallium","elemMass":"69.72","elemClass":"p_block"},"element-32":{"elemShortName":"Ge","elemFullName":"Germaniy","elemLatName":"Germanium","elemMass":"72.59","elemClass":"p_block"},"element-33":{"elemShortName":"As","elemFullName":"Margimush","elemLatName":"Arsenicum","elemMass":"74.922","elemClass":"p_block"},"element-34":{"elemShortName":"Se","elemFullName":"Selen","elemLatName":"Selenium","elemMass":"78.96","elemClass":"p_block"},"element-35":{"elemShortName":"Br","elemFullName":"Brom","elemLatName":"Bromum","elemMass":"79.904","elemClass":"p_block"},"element-36":{"elemShortName":"Kr","elemFullName":"Kripton","elemLatName":"Krypton","elemMass":"83.8","elemClass":"p_block"},"element-37":{"elemShortName":"Rb","elemFullName":"Rubidiy","elemLatName":"Rubidium","elemMass":"85.468","elemClass":"s_block"},"element-38":{"elemShortName":"Sr","elemFullName":"Strontsiy","elemLatName":"Strontium","elemMass":"87.62","elemClass":"s_block"},"element-39":{"elemShortName":"Y","elemFullName":"Ittriy","elemLatName":"Yttrium","elemMass":"88.906","elemClass":"d_block"},"element-40":{"elemShortName":"Zr","elemFullName":"Sirkoniy","elemLatName":"Zirconium","elemMass":"91.22","elemClass":"d_block"},"element-41":{"elemShortName":"Nb","elemFullName":"Niobiy","elemLatName":"Niobium","elemMass":"92.906","elemClass":"d_block"},"element-42":{"elemShortName":"Mo","elemFullName":"Molibden","elemLatName":"Molybdenum","elemMass":"95.94","elemClass":"d_block"},"element-43":{"elemShortName":"Tc","elemFullName":"Texnetsiy","elemLatName":"Technetium","elemMass":"99","elemClass":"d_block"},"element-44":{"elemShortName":"Ru","elemFullName":"Ruteniy","elemLatName":"Ruthenium","elemMass":"101.07","elemClass":"d_block"},"element-45":{"elemShortName":"Rh","elemFullName":"Rodiy","elemLatName":"Rhodium","elemMass":"102.906","elemClass":"d_block"},"element-46":{"elemShortName":"Pd","elemFullName":"Palladiy","elemLatName":"Palladium","elemMass":"106.4","elemClass":"d_block"},"element-47":{"elemShortName":"Ag","elemFullName":"Kumush","elemLatName":"Argentum","elemMass":"107.868","elemClass":"d_block"},"element-48":{"elemShortName":"Cd","elemFullName":"Kadmiy","elemLatName":"Cadmium","elemMass":"112.41","elemClass":"d_block"},"element-49":{"elemShortName":"In","elemFullName":"Indiy","elemLatName":"Indium","elemMass":"114.82","elemClass":"p_block"},"element-50":{"elemShortName":"Sn","elemFullName":"Qalay","elemLatName":"Stannum","elemMass":"118.69","elemClass":"p_block"},"element-51":{"elemShortName":"Sb","elemFullName":"Surma","elemLatName":"Stibium","elemMass":"121.75","elemClass":"p_block"},"element-52":{"elemShortName":"Te","elemFullName":"Tellur","elemLatName":"Tellurium","elemMass":"127.6","elemClass":"p_block"},"element-53":{"elemShortName":"I","elemFullName":"Yod","elemLatName":"Iodum","elemMass":"126.905","elemClass":"p_block"},"element-54":{"elemShortName":"Xe","elemFullName":"Ksenon","elemLatName":"Xenon","elemMass":"131.3","elemClass":"p_block"},"element-55":{"elemShortName":"Cs","elemFullName":"Seziy","elemLatName":"Caesium","elemMass":"132.905","elemClass":"s_block"},"element-56":{"elemShortName":"Ba","elemFullName":"Bariy","elemLatName":"Barium","elemMass":"137.34","elemClass":"s_block"},"element-72":{"elemShortName":"Hf","elemFullName":"Gafniy","elemLatName":"Hafnium","elemMass":"178.49","elemClass":"d_block"},"element-73":{"elemShortName":"Ta","elemFullName":"Tantal","elemLatName":"Tantalum","elemMass":"180.948","elemClass":"d_block"},"element-74":{"elemShortName":"W","elemFullName":"Volfram","elemLatName":"Wolframium","elemMass":"183.85","elemClass":"d_block"},"element-75":{"elemShortName":"Re","elemFullName":"Reniy","elemLatName":"Rhenium","elemMass":"186.207","elemClass":"d_block"},"element-76":{"elemShortName":"Os","elemFullName":"Osmiy","elemLatName":"Osmium","elemMass":"190.2","elemClass":"d_block"},"element-77":{"elemShortName":"Ir","elemFullName":"Iridiy","elemLatName":"Iridium","elemMass":"192.22","elemClass":"d_block"},"element-78":{"elemShortName":"Pt","elemFullName":"Platina","elemLatName":"Platinum","elemMass":"195.09","elemClass":"d_block"},"element-79":{"elemShortName":"Au","elemFullName":"Oltin","elemLatName":"Aurum","elemMass":"196.967","elemClass":"d_block"},"element-80":{"elemShortName":"Hg","elemFullName":"Simob","elemLatName":"Hydrargyrum","elemMass":"200.59","elemClass":"d_block"},"element-81":{"elemShortName":"Tl","elemFullName":"Talliy","elemLatName":"Thallium","elemMass":"204.37","elemClass":"p_block"},"element-82":{"elemShortName":"Pb","elemFullName":"Qo`rg`oshin","elemLatName":"Plumbum","elemMass":"207.19","elemClass":"p_block"},"element-83":{"elemShortName":"Bi","elemFullName":"Vismut","elemLatName":"Bisemutum","elemMass":"208.98","elemClass":"p_block"},"element-84":{"elemShortName":"Po","elemFullName":"Poloniy","elemLatName":"Polonium","elemMass":"210","elemClass":"p_block"},"element-85":{"elemShortName":"At","elemFullName":"Astat","elemLatName":"Astatum","elemMass":"210","elemClass":"p_block"},"element-86":{"elemShortName":"Rn","elemFullName":"Radon","elemLatName":"Radon","elemMass":"222","elemClass":"p_block"},"element-87":{"elemShortName":"Fr","elemFullName":"Frantsiy","elemLatName":"Francium","elemMass":"223","elemClass":"s_block"},"element-88":{"elemShortName":"Ra","elemFullName":"Radiy","elemLatName":"Radium","elemMass":"226","elemClass":"s_block"},"element-104":{"elemShortName":"Rf","elemFullName":"Rezerfordiy","elemLatName":"Rutherfordium","elemMass":"261","elemClass":"d_block"},"element-105":{"elemShortName":"Db","elemFullName":"Dubniy","elemLatName":"Dubnium","elemMass":"262","elemClass":"d_block"},"element-106":{"elemShortName":"Sg","elemFullName":"Siborgiy","elemLatName":"Seaborgium","elemMass":"271","elemClass":"d_block"},"element-107":{"elemShortName":"Bh","elemFullName":"Boriy","elemLatName":"Bohrium","elemMass":"267","elemClass":"d_block"},"element-108":{"elemShortName":"Hs","elemFullName":"Xassiy","elemLatName":"Hassium","elemMass":"269","elemClass":"d_block"},"element-109":{"elemShortName":"Mt","elemFullName":"Meytneriy","elemLatName":"Meitnerium","elemMass":"276","elemClass":"d_block"},"element-110":{"elemShortName":"Ds","elemFullName":"Darmshtadtiy","elemLatName":"Darmstadtium","elemMass":"281","elemClass":"d_block"},"element-111":{"elemShortName":"Rg","elemFullName":"Rentgeniy","elemLatName":"Roentgenium","elemMass":"280","elemClass":"d_block"},"element-112":{"elemShortName":"Cn","elemFullName":"Kopernitsiy","elemLatName":"Copernicium","elemMass":"285","elemClass":"d_block"},"element-113":{"elemShortName":"Nh","elemFullName":"Nixoniy","elemLatName":"Nihonium","elemMass":"286","elemClass":"p_block"},"element-114":{"elemShortName":"Fl","elemFullName":"Fleroviy","elemLatName":"Flerovium","elemMass":"289","elemClass":"p_block"},"element-115":{"elemShortName":"Mc","elemFullName":"Moskoviy","elemLatName":"Moscovium","elemMass":"289","elemClass":"p_block"},"element-116":{"elemShortName":"Lv","elemFullName":"Livermoriy","elemLatName":"Livermorium","elemMass":"293","elemClass":"p_block"},"element-117":{"elemShortName":"Ts","elemFullName":"Tennessin","elemLatName":"Tennessine","elemMass":"294","elemClass":"p_block"},"element-118":{"elemShortName":"Og","elemFullName":"Oganeson","elemLatName":"Oganesson","elemMass":"294","elemClass":"p_block"},"element-57":{"elemShortName":"La","elemFullName":"Lantan","elemLatName":"Lanthanum","elemMass":"138.906","elemClass":"f_block"},"element-58":{"elemShortName":"Ce","elemFullName":"Seriy","elemLatName":"Cerium","elemMass":"140.115","elemClass":"f_block"},"element-59":{"elemShortName":"Pr","elemFullName":"Prazeodim","elemLatName":"Praseodymium","elemMass":"140.908","elemClass":"f_block"},"element-60":{"elemShortName":"Nd","elemFullName":"Neodim","elemLatName":"Neodymium","elemMass":"144.24","elemClass":"f_block"},"element-61":{"elemShortName":"Pm","elemFullName":"Prometiy","elemLatName":"Promethium","elemMass":"145","elemClass":"f_block"},"element-62":{"elemShortName":"Sm","elemFullName":"Samariy","elemLatName":"Samarium","elemMass":"150.4","elemClass":"f_block"},"element-63":{"elemShortName":"Eu","elemFullName":"Yevropiy","elemLatName":"Europium","elemMass":"151.96","elemClass":"f_block"},"element-64":{"elemShortName":"Gd","elemFullName":"Gadoliniy","elemLatName":"Gadolinium","elemMass":"157.25","elemClass":"f_block"},"element-65":{"elemShortName":"Tb","elemFullName":"Terbiy","elemLatName":"Terbium","elemMass":"158.926","elemClass":"f_block"},"element-66":{"elemShortName":"Dy","elemFullName":"Disproziy","elemLatName":"Dysprosium","elemMass":"162.5","elemClass":"f_block"},"element-67":{"elemShortName":"Ho","elemFullName":"Golmiy","elemLatName":"Holmium","elemMass":"164.93","elemClass":"f_block"},"element-68":{"elemShortName":"Er","elemFullName":"Erbiy","elemLatName":"Erbium","elemMass":"167.26","elemClass":"f_block"},"element-69":{"elemShortName":"Tm","elemFullName":"Tuliy","elemLatName":"Thulium","elemMass":"168.934","elemClass":"f_block"},"element-70":{"elemShortName":"Yb","elemFullName":"Itterbiy","elemLatName":"Ytterbium","elemMass":"173.04","elemClass":"f_block"},"element-71":{"elemShortName":"Lu","elemFullName":"Lyutetsiy","elemLatName":"Lutetium","elemMass":"174.97","elemClass":"f_block"},"element-89":{"elemShortName":"Ac","elemFullName":"Aktiniy","elemLatName":"Actinium","elemMass":"227","elemClass":"f_block"},"element-90":{"elemShortName":"Th","elemFullName":"Toriy","elemLatName":"Thorium","elemMass":"232.038","elemClass":"f_block"},"element-91":{"elemShortName":"Pa","elemFullName":"Protaktiniy","elemLatName":"Protactinium","elemMass":"231","elemClass":"f_block"},"element-92":{"elemShortName":"U","elemFullName":"Uran","elemLatName":"Uranium","elemMass":"238.29","elemClass":"f_block"},"element-93":{"elemShortName":"Np","elemFullName":"Neptuniy","elemLatName":"Neptunium","elemMass":"237","elemClass":"f_block"},"element-94":{"elemShortName":"Pu","elemFullName":"Plutoniy","elemLatName":"Plutonium","elemMass":"244","elemClass":"f_block"},"element-95":{"elemShortName":"Am","elemFullName":"Ameritsiy","elemLatName":"Americium","elemMass":"243","elemClass":"f_block"},"element-96":{"elemShortName":"Cm","elemFullName":"Kyuriy","elemLatName":"Curium","elemMass":"247","elemClass":"f_block"},"element-97":{"elemShortName":"Bk","elemFullName":"Berkliy","elemLatName":"Berkelium","elemMass":"247","elemClass":"f_block"},"element-98":{"elemShortName":"Cf","elemFullName":"Kaliforniy","elemLatName":"Californium","elemMass":"251","elemClass":"f_block"},"element-99":{"elemShortName":"Es","elemFullName":"Eynshteyniy","elemLatName":"Einsteinium","elemMass":"254","elemClass":"f_block"},"element-100":{"elemShortName":"Fm","elemFullName":"Fermiy","elemLatName":"Fermium","elemMass":"257","elemClass":"f_block"},"element-101":{"elemShortName":"Md","elemFullName":"Mendeleeviy","elemLatName":"Mendelevium","elemMass":"258","elemClass":"f_block"},"element-102":{"elemShortName":"No","elemFullName":"Nobeliy","elemLatName":"Nobelium","elemMass":"259","elemClass":"f_block"},"element-103":{"elemShortName":"Lr","elemFullName":"Lourensiy","elemLatName":"Lawrencium","elemMass":"260","elemClass":"f_block"}}');
+    console.log(periodic_table);
+    document.querySelectorAll('.chemical_elem').forEach(function(elem){
+        var elem_number = elem.className.split(' ')[1].split('elem')[1];
+        var atom = periodic_table['element-'+elem_number];
+        elem.classList.add(atom.elemClass);
+        var template = `<span class="serial-number">${elem_number}</span>
+            <span class="short-name">${atom.elemShortName}</span>
+            <span class="full-name">${atom.elemFullName}</span>
+            <span class="lat-name">${atom.elemLatName}</span>
+            <span class="mass">[${atom.elemMass}]</span>`;
+
+        elem.innerHTML = template;
+    });
+    function $(sel){
+		return document.querySelector(sel);
+	}
+	function $$(sel){
+		return document.querySelectorAll(sel);
+	}
+	
+	var elemMass = {};
+	$$('.periodic-table .chemical_elem').forEach(x=>{
+		var shortname = x.querySelector('.short-name').innerText;
+		var mass = x.querySelector('.mass').innerText.replace(/[\[\]]/g, '');
+		elemMass[shortname] = mass;
+	});
+	
+	var result = $('.result');
+	var form = $('.inp');
+	form.addEventListener('submit', function(e){
+	e.preventDefault();
+		var molecula = $('.molecula').value;
+		molecula = molecula.replace(/[A-Z][a-z]?\d*/g, x=>{
+			var rs;
+			var atomIndex = x.match(/\d+/);
+			var atomMass = Number(elemMass[x.split(/\d/)[0]]).toFixed(1);			
+			if(atomIndex){
+				rs = `${atomMass}*${atomIndex}`;
+			}
+			else{
+				rs = atomMass;
+			}
+				return rs + '+';
+		});
+		molecula = molecula.replace(/\+$/, '').replace(/\+\)/g,')').replace(/\)(\d)/g, ')*$1');
+		var molecularMass = eval(molecula).toFixed(1);
+		var molyarMass = (+$('.molecula-mass').value)/molecularMass;
+		molyarMass = molyarMass ? molyarMass.toFixed(4) : 0;
+		$('.result').innerHTML = `Молекулярная масса: <b>${molecularMass}</b><br/>Молярная масса: <b>${molyarMass}</b>`;
+	});
+	
+</script>
+</body>
+</html>
