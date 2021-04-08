@@ -1,6 +1,3 @@
-/*=================================================*/
-//                HELPER FUNCTIONS                 //
-/*=================================================*/
 function setCookie( cname, cvalue, exdays ) {
     var d = new Date();
     d.setTime( d.getTime() + (exdays * 24 * 60 * 60 * 1000) );
@@ -28,6 +25,7 @@ function getCookie( cname ) {
 //                    WISHLIST                     //
 /*=================================================*/
 function FeaturedList( config ) {
+
     //================================
     // Config
     // ===============================
@@ -54,7 +52,8 @@ function FeaturedList( config ) {
     //======================================
     // Listen clicks
     // =====================================
-    document.querySelectorAll( config.targetSelector ).forEach( function( target ){
+    var targets = document.querySelectorAll( config.targetSelector );
+    targets.forEach( function( target ){
         target.addEventListener('click', function ( e ){
             if ( this.className.indexOf( config.activeClassName ) === -1 ) {
                 this.classList.add( config.activeClassName );
@@ -72,30 +71,27 @@ function FeaturedList( config ) {
     //======================================
     this.featured.forEach( function( productID ){
         var selector = config.targetSelector + '[data-'+ config.dataAttr +'="'+ productID +'"]';
-        document.querySelector( selector ).classList.add( config.activeClassName );
+        var target = document.querySelector( selector );
+        target && target.classList.add( config.activeClassName );
     });
 }
 
-// Prototype
+// Methods
 FeaturedList.prototype.set = function ( featuredID ) {
-    if ( ! this.featured || this.featured.length ) {
-        setCookie( this.config.cookieKey, featuredID );
-    } else {
-        var itemIndex = this.featured.indexOf( featuredID );
-        if ( itemIndex === -1 ) {
-            this.featured.push( featuredID );
+    var itemIndex = this.featured.indexOf( featuredID );
+    if ( itemIndex === -1 ) {
+        this.featured.push( featuredID );
 
-            //Set limit, if more than maxLength remove most older postID
-            if ( this.featured.length > this.config.maxLength ) {
-                this.featured.shift();
-            }
+        //Set limit, if more than maxLength remove most older postID
+        if ( this.featured.length > this.config.maxLength ) {
+            this.featured.shift();
         }
     }
-    setCookie( this.config.cookieKey, this.featured.join( ',' ) );
+    setCookie( this.config.cookieKey, this.featured.join( this.config.separator ) );
 }
 
 FeaturedList.prototype.remove = function ( featuredID ) {
     var itemIndex = this.featured.indexOf( featuredID );
     this.featured.splice( itemIndex, 1 );
-    setCookie( this.config.cookieKey, this.featured.join( ',' ) );
+    setCookie( this.config.cookieKey, this.featured.join( this.config.separator ) );
 }
