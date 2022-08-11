@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>
+CLOCK MOD
+</title>
+<style>
+body{
+	background-color: #666;
+}
+
+.clock_work{
+	padding: 150px;
+	color: #fff;
+	position: relative;
+}
+.delimeter{
+	font-size: 30px;
+	position: absolute;
+	top: 175px;
+}
+.clock_elem span{
+	color: orange;
+	font-size: 11px;
+	padding: 0 2px;
+	font-weight: 800;
+	text-shadow: .3px .3px 0px orange;
+	width: 14px;
+	height: 14px;
+	vertical-align: baseline;
+	display: inline-block;
+}
+
+.clock_elem{
+display: inline-block;
+padding:0 5px 0 20px;
+}
+.first_num, .second_num{
+	display: inline-block; 
+}
+.first_num{
+	padding-right: 5px;
+}
+</style>
+</head>
+<body>
+<div class="clock_work">
+	<div class="clock_elem hour">
+		<div class="first_num">
+			<span></span><span></span><span></span><br />
+			<span></span><span></span><span></span><br />
+			<span></span><span></span><span></span><br />
+			<span></span><span></span><span></span><br />
+			<span></span><span></span><span></span>
+		</div>
+		<div class="second_num">
+			<span></span><span></span><span></span><br />
+			<span></span><span></span><span></span><br />
+			<span></span><span></span><span></span><br />
+			<span></span><span></span><span></span><br />
+			<span></span><span></span><span></span>
+		</div>
+	</div>
+	<b class="delimeter">:</b>
+	<div class="clock_elem minute">
+		<div class="first_num">
+			<span></span><span></span><span></span><br />
+			<span></span><span></span><span></span><br />
+			<span></span><span></span><span></span><br />
+			<span></span><span></span><span></span><br />
+			<span></span><span></span><span></span>
+		</div>
+		<div class="second_num">
+			<span></span><span></span><span></span><br />
+			<span></span><span></span><span></span><br />
+			<span></span><span></span><span></span><br />
+			<span></span><span></span><span></span><br />
+			<span></span><span></span><span></span>
+		</div>
+	</div>
+	<b class="delimeter">:</b>
+	<div class="clock_elem seconds">
+		<div class="first_num">
+			<span></span><span></span><span></span><br />
+			<span></span><span></span><span></span><br />
+			<span></span><span></span><span></span><br />
+			<span></span><span></span><span></span><br />
+			<span></span><span></span><span></span>
+		</div>
+		<div class="second_num">
+			<span></span><span></span><span></span><br />
+			<span></span><span></span><span></span><br />
+			<span></span><span></span><span></span><br />
+			<span></span><span></span><span></span><br />
+			<span></span><span></span><span></span>
+		</div>
+	</div>
+</div>
+<script>
+function $(sel){
+	return document.querySelector(sel);
+}
+
+function $$(sel){
+	return document.querySelectorAll(sel);
+}
+
+function randint(min, max) {
+    var rand = min - 0.5 + Math.random() * (max - min + 1)
+    rand = Math.round(rand);
+    return rand;
+  }
+
+setInterval(function(){
+	$('.clock_work').innerHTML = `<div class="clock_elem hour">
+		<div class="first_num">
+			<span></span><span></span><span></span><br />
+			<span></span><span></span><span></span><br />
+			<span></span><span></span><span></span><br />
+			<span></span><span></span><span></span><br />
+			<span></span><span></span><span></span>
+		</div>
+		<div class="second_num">
+			<span></span><span></span><span></span><br />
+			<span></span><span></span><span></span><br />
+			<span></span><span></span><span></span><br />
+			<span></span><span></span><span></span><br />
+			<span></span><span></span><span></span>
+		</div>
+	</div>
+	<b class="delimeter">:</b>
+	<div class="clock_elem minute">
+		<div class="first_num">
+			<span></span><span></span><span></span><br />
+			<span></span><span></span><span></span><br />
+			<span></span><span></span><span></span><br />
+			<span></span><span></span><span></span><br />
+			<span></span><span></span><span></span>
+		</div>
+		<div class="second_num">
+			<span></span><span></span><span></span><br />
+			<span></span><span></span><span></span><br />
+			<span></span><span></span><span></span><br />
+			<span></span><span></span><span></span><br />
+			<span></span><span></span><span></span>
+		</div>
+	</div>
+	<b class="delimeter">:</b>
+	<div class="clock_elem seconds">
+		<div class="first_num">
+			<span></span><span></span><span></span><br />
+			<span></span><span></span><span></span><br />
+			<span></span><span></span><span></span><br />
+			<span></span><span></span><span></span><br />
+			<span></span><span></span><span></span>
+		</div>
+		<div class="second_num">
+			<span></span><span></span><span></span><br />
+			<span></span><span></span><span></span><br />
+			<span></span><span></span><span></span><br />
+			<span></span><span></span><span></span><br />
+			<span></span><span></span><span></span>
+		</div>
+	</div>`;
+	var currentTime = new Date();
+	function zerofy(num){
+		num = ''+num;
+		return num.length === 1 ? '0' + num : num;
+	}
+	var _second = zerofy(currentTime.getSeconds());
+	var _minute = (currentTime.getMinutes());
+	var _hour = zerofy(currentTime.getHours());
+	currentTime = (_hour + _minute + _second).split('');
+	
+	$$('.clock_elem div').forEach((x, index)=>{
+		var display = x.querySelectorAll('span');
+		var display_num_arr = nums_place(currentTime[index]);
+		display_num_arr.forEach((x,i)=>{
+			display[x-1].innerText = randint(10,99)
+		});
+	});
+},1000);
+  
+var clock = $('.clock_work');
+
+
+function nums_place(num){
+	if(num < 0 || num > 9){
+		alert('fck you');
+		return;
+	}
+	num = +num;
+	switch(num){
+		case 0:
+			return [1,2,3,4,6,7,9,10,12,13,14,15];
+			break;
+		case 1:
+			return [2,5,8,11,14];
+			break;
+		case 2:
+			return [1,2,3,6,9,8,7,10,13,14,15];
+			break;
+		case 3:
+			return [1,2,3,6,9,8,7,12,15,14,13];
+			break;
+		case 4:
+			return [1,4,7,8,9,6,3,12,15];
+			break;
+		case 5:
+			return [3,2,1,4,7,8,9,12,15,14,13];
+			break;
+		case 6:
+			return [3,2,1,4,7,8,9,12,15,14,13,10];
+			break;
+		case 7:
+			return [1,2,3,6,9,12,15]; 
+			break;
+		case 8:
+			return [1,2,3,4,6,7,8,9,10,12,13,14,15];
+			break;
+		case 9:
+			return [1,2,3,4,6,7,8,9,12,13,14,15];
+			break;
+	}
+}
+
+
+</script>
+</body>
+</html>
